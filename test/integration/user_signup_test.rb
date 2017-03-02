@@ -1,6 +1,6 @@
 require 'test_helper'
 
-class UserSignupTestTest < ActionDispatch::IntegrationTest
+class UserSignupTest < ActionDispatch::IntegrationTest
 
   test "invalid user signup" do
     get signup_path
