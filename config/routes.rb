@@ -9,8 +9,13 @@ Rails.application.routes.draw do
   get  '/contact', to: 'static_pages#contact'
   get '/hey', to: 'static_pages#hey'
   get 'signup', to: 'users#new'
-  resources :users
+  resources :users do
+    member do
+      get :following, :followers
+    end
+  end
   resources :account_activations, only: [:edit]
   resources :password_resets, only: [:new, :create, :edit, :update]
-  resources :microposts,          only: [:create, :destroy]
+  resources :microposts, only: [:create, :destroy]
+  resources :relationships, only: [:create, :destroy]
 end
