@@ -15,7 +15,6 @@ gem 'jquery-rails', '4.1.1'
 gem 'turbolinks',   '5.0.1'
 gem 'jbuilder',     '2.4.1'
 gem 'bcrypt',       '3.1.11'
-gem 'faker',        '1.6.6'
 gem 'will_paginate',           '3.1.0'
 gem 'bootstrap-will_paginate', '0.0.10'
 gem 'carrierwave',             '0.11.2'
@@ -37,6 +36,11 @@ end
 
 group :test do
   gem 'rails-controller-testing', '0.1.1'
+  gem 'faker', '~> 1.7', '>= 1.7.3'
+  gem 'capybara', '~> 2.12', '>= 2.12.1'
+  gem 'database_cleaner', '~> 1.5', '>= 1.5.3'
+  gem 'launchy', '~> 2.4', '>= 2.4.3'
+  gem 'selenium-webdriver', '~> 2.53', '>= 2.53.4'
 end
 
 group :production do
