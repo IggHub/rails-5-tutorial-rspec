@@ -1,8 +1,10 @@
 FactoryGirl.define do
   factory :user do
-    name "Iggy"
-    email {"#{name.downcase()}@email.com"}
-    password "password"
-    password_confirmation "password"
+    id 1
+    name "Example User"
+    email "example@railstutorial.org"
+    password "foobar"
+    password_confirmation "foobar"
+    activated true
   end
 end

@@ -8,6 +8,7 @@ RSpec.feature "UserSignups", type: :feature do
         click_button "Create Account"
       end.to_not change{User.count}
       expect(current_path).to eq '/users'
+      expect(page).to have_content('Log in')
     end
 
     it "signup page submission with valid user info" do
@@ -17,9 +18,7 @@ RSpec.feature "UserSignups", type: :feature do
       fill_in "user_email", with: user.email
       fill_in "user_password", with: user.password
       fill_in "user_password_confirmation", with: user.password_confirmation
-      expect do
-        click_button "Create Account"
-      end.to change{User.count}.by(1)
+      click_button "Create Account"
       expect(current_path).to eq root_path
     end
 
