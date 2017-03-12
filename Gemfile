@@ -42,6 +42,7 @@ group :test do
   gem 'database_cleaner', '~> 1.5', '>= 1.5.3'
   gem 'launchy', '~> 2.4', '>= 2.4.3'
   gem 'selenium-webdriver', '~> 2.53', '>= 2.53.4'
+  gem "show_me_the_cookies"
 end
 
 group :production do

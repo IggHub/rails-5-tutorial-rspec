@@ -21,4 +21,29 @@ RSpec.feature "UserLogins", type: :feature do
     expect(current_path).to eq '/'
     expect(page).to have_content "Log in!"
   end
+
+  it "login with remembering?" do
+    user = FactoryGirl.create(:user)
+    visit login_path
+    fill_in 'session_email', with: user.email
+    fill_in 'session_password', with: user.password
+    check "session_remember_me"
+    click_button "Log in"
+    expect(page).to have_content "Log out"
+    expire_cookies
+    visit login_path
+    expect(page).to have_content "Log out"
+  end
+
+  it "login without remembering" do
+    user = FactoryGirl.create(:user)
+    visit login_path
+    fill_in 'session_email', with: user.email
+    fill_in 'session_password', with: user.password
+    click_button "Log in"
+    expect(page).to have_content "Log out"
+    expire_cookies
+    visit login_path
+    expect(page).to have_content "Log in!"
+  end
 end
