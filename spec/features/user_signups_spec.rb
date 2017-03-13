@@ -21,6 +21,5 @@ RSpec.feature "UserSignups", type: :feature do
       click_button "Create Account"
       expect(current_path).to eq root_path
     end
-
   end
 end
