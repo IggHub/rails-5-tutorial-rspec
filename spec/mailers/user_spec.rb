@@ -18,5 +18,18 @@ RSpec.describe UserMailer, type: :mailer do
       end
     end
 
+    context "Password Reset" do
+      before(:each) {user.reset_token = User.new_token}
+
+      it "runs password_reset" do
+        expect(password_reset.subject).to eq("Password Reset")
+        expect(password_reset.to).to eq([user.email])
+        expect(account_activation.from).to eq(["noreply@example.com"])
+      end
+
+      it "renders password_reset body" do
+        expect(password_reset.body.encoded).to have_content('To reset your password')
+      end
+    end
   end
 end
