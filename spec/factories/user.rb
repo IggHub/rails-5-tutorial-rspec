@@ -4,10 +4,9 @@ FactoryGirl.define do
     name "Iggy1"
     email "iggy1@email.com"
     password "foobar"
-    password_confirmation "foobar"
+    password_confirmation {|u| u.password}
     activated true
     admin false
-    
   end
 
   factory :user2, class: User do
