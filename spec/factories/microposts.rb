@@ -3,5 +3,4 @@ FactoryGirl.define do
     sequence(:content) {|n| "Lorem Ipsum Numero #{n}"}
     user
   end
-
 end

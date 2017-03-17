@@ -64,4 +64,16 @@ RSpec.describe User, type: :model do
     end
   end
 
+  context "follow and unfollow" do
+    it "should follow and unfollow user" do
+      user1 = FactoryGirl.build(:user)
+      user2 = FactoryGirl.build(:user2)
+      expect(user1.following?(user2)).to be false
+      user1.follow(user2)
+      expect(user1.following?(user2)).to be true
+      #expect(user2.followers.include?(user1)).to be true
+      user1.unfollow(user2)
+
+    end
+  end
 end
